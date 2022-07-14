@@ -3,9 +3,14 @@ package hyein.dev.javatest;
 public class Study {
     private StudyStatus studyStatus = StudyStatus.DRAFT;
     private int limit = 0;
+    private String name;
 
     public Study() {
+    }
 
+    public Study(int limit, String name) {
+        this.limit = limit;
+        this.name = name;
     }
 
     public Study(int limit) {
