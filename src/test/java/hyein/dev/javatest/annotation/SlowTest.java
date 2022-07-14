@@ -1,4 +1,4 @@
-package hyein.dev.javatest;
+package hyein.dev.javatest.annotation;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-@Tag("fast") // meta annotation
+@Tag("slow") // meta annotation
 @Test // meta annotation
-public @interface FastTest { // composed annotation
+public @interface SlowTest { // composed annotation
 }

@@ -1,8 +1,13 @@
 package hyein.dev.javatest;
 
+import hyein.dev.javatest.annotation.FastTest;
+import hyein.dev.javatest.annotation.SlowTest;
+import hyein.dev.javatest.extenstion.FindSlowExtension;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.ParameterContext;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.aggregator.AggregateWith;
 import org.junit.jupiter.params.aggregator.ArgumentsAccessor;
@@ -12,8 +17,6 @@ import org.junit.jupiter.params.converter.ArgumentConversionException;
 import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.converter.SimpleArgumentConverter;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.EmptySource;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -27,7 +30,11 @@ import static org.junit.jupiter.api.Assumptions.assumingThat;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+//@ExtendWith(FindSlowExtension.class)
 class StudyTest {
+
+    @RegisterExtension
+    static FindSlowExtension findSlowExtension = new FindSlowExtension(1003L);
 
     @Test
     @DisplayName("스터디_테스트_😂")
@@ -157,5 +164,10 @@ class StudyTest {
             assertEquals(Study.class, targetClass, "Can only convert to study");
             return new Study(Integer.parseInt(source.toString()));
         }
+    }
+
+    @Test
+    void slowTest() throws InterruptedException {
+        Thread.sleep(1005L);
     }
 }
