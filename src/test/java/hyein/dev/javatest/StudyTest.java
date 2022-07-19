@@ -1,11 +1,11 @@
 package hyein.dev.javatest;
 
 import hyein.dev.javatest.annotation.FastTest;
-import hyein.dev.javatest.annotation.SlowTest;
+import hyein.dev.javatest.domain.Study;
 import hyein.dev.javatest.extenstion.FindSlowExtension;
+import hyein.dev.javatest.study.StudyStatus;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.*;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.ParameterContext;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.params.ParameterizedTest;

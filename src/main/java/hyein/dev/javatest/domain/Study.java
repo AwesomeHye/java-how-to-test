@@ -1,9 +1,12 @@
-package hyein.dev.javatest;
+package hyein.dev.javatest.domain;
+
+import hyein.dev.javatest.study.StudyStatus;
 
 public class Study {
     private StudyStatus studyStatus = StudyStatus.DRAFT;
     private int limit = 0;
     private String name;
+    private Member owner;
 
     public Study() {
     }
@@ -27,5 +30,9 @@ public class Study {
 
     public int getLimit() {
         return limit;
+    }
+
+    public void setOwner(Member member) {
+        this.owner = member;
     }
 }
