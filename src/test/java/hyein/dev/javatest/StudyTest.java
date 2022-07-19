@@ -77,7 +77,7 @@ class StudyTest {
     void assume_true() {
         String env = System.getenv("PROCESSOR_LEVEL");
         System.out.println(env);
-//        assumeTrue("6".equalsIgnoreCase(env)); // 이 조건이 만족해야지만 하위 코드 실행
+        assumeTrue("6".equalsIgnoreCase(env)); // 이 조건이 만족해야지만 하위 코드 실행
 
         assumingThat("6".equalsIgnoreCase(env), () -> {
             Study actual = new Study(10);
