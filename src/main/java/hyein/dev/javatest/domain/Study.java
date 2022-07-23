@@ -2,13 +2,24 @@ package hyein.dev.javatest.domain;
 
 import hyein.dev.javatest.study.StudyStatus;
 
+import java.time.LocalDateTime;
+
 public class Study {
     private StudyStatus studyStatus = StudyStatus.DRAFT;
     private int limit = 0;
     private String name;
+    private LocalDateTime openedDateTime;
     private Member owner;
 
     public Study() {
+    }
+
+    public LocalDateTime getOpenedDateTime() {
+        return openedDateTime;
+    }
+
+    public void setOpenedDateTime(LocalDateTime openedDateTime) {
+        this.openedDateTime = openedDateTime;
     }
 
     public Study(int limit, String name) {
@@ -34,5 +45,14 @@ public class Study {
 
     public void setOwner(Member member) {
         this.owner = member;
+    }
+
+    public Member getOwner() {
+        return owner;
+    }
+
+    public void open() {
+        this.studyStatus = StudyStatus.OPENED;
+        this.openedDateTime = LocalDateTime.now();
     }
 }
