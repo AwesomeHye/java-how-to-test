@@ -1,0 +1,12 @@
+# 운영용
+version: "3"
+
+services:
+  study-db:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: study
+      POSTGRES_USER: study
+      POSTGRES_PASSWORD: study

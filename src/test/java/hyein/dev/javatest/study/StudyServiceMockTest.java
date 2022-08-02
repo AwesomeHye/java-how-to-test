@@ -22,9 +22,12 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.*;
 
+/**
+ * Mock test
+ */
 @ExtendWith(MockitoExtension.class) // @Mock 애노테이션을 처리해준다.
 @MockitoSettings(strictness = Strictness.LENIENT)
-class StudyServiceTest {
+class StudyServiceMockTest {
 
     @Mock // Mockito.mock(MemberService.class) 을 간단하게 애노테이션으로 만들 수 있다.
     MemberService memberService;
